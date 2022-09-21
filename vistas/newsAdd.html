@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS only -->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>    
+<link rel="stylesheet" href="css/styles.css">    
+    <title>CI-NEWS</title>
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+                <a class="navbar-brand text-white" href="#">CI-NEWS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item text-white">
+                    <a class="nav-link" href="#">Registrar Noticias</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Listas Noticias
+                    </a>
+                    <ul class="dropdown-menu text-white">
+                        <li><a class="dropdown-item" href="fakeNews.html">Noticias falsas</a></li>
+                        <li><a class="dropdown-item" href="blackNews.html">Noticias Negras</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="worldNews.html">Noticias Mundiales</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+        <br>
+        <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <br>
+                <div class="card">
+                    <div class="card-header bg-warning text-center">
+                        <h2>Formulario News</h2>
+                    </div>
+                </div>
+                <br>
+                <div class="card-body ">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label" >Titulo contenido</label>
+                            <input type="text" class="form-control" required id="title" autofocus>
+                            <div class="container bg-danger" style="display: none;" id="message-error-title">
+                                <p class="text-white">Este campo no puede estar vacio</p>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Contenido Noticias</label>
+                            <textarea name=""  cols="100" rows="10" class="form-control resize" required id="content"></textarea>
+                            <div class="container bg-danger" style="display: none;" id="message-error-content">
+                                <p class="text-white">Este campo no puede estar vacio</p>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Estado</label>
+                            <select name="" class="form-control" required id="status">
+                                <option value="0" selected disabled>SELECCIONE</option>
+                                <option value="1">Activo</option>
+                                <option value="2">Inactivo</option>
+                            </select>
+                            <div class="container bg-danger" style="display: none;" id="message-error-status">
+                                <p class="text-white">Este campo no puede estar vacio</p>
+                            </div>
+                        </div>
+                </div>
+                <br>
+                <div class="card-footer">
+                    <button class="btn btn-success large" onclick='SaveData()'>Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+<button type="button" id="button_di" style="visibility: hidden;" class="btn btn-primary">
+    Launch static backdrop modal
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" id="model.di">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+            <h5 class="modal-title text-white" id="staticBackdropLabel">Atención</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+                <div class="col-12 text-center" >
+                    <img src="" alt="">
+                </div>
+                <div class="col-12 text-center">
+                    <h1>DATOS GUARDADOS</h1>
+
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    //variables que contiene
+    var titulo;
+    var contenido;
+    var estado;
+    
+    //metodo jquery
+    function SaveData(){
+        titulo =$('#title').val()
+        contenido=$('#content').val()
+        estado=$('#status').val()
+    
+        if(titulo == undefined || titulo== null || titulo ==''){
+            $('#message-error-title').show();
+            return false;
+        }else{
+            $('#message-error-title').hide();
+        }
+
+        if(contenido == undefined ||contenido== null || contenido ==''){
+            $('#message-error-content').show();
+            return false;
+
+        }else{
+            $('#message-error-content').hide();
+        }
+
+        if(estado == undefined || estado== null || estado ==0){
+            $('#message-error-status').show();
+            return false;
+
+        }else{
+            $('#message-error-status').hide();
+        }
+
+        //$('#staticBackdrop').css('display','block');
+        //$('#modal-di').show();
+        
+        $('#button_di').click();
+    
+    
+    //metodo javascript
+    //titulo = document.getElementById('title').value;
+    //console.log(titulo);
+    }
+
+
+</script>
